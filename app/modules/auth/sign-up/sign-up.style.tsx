@@ -1,0 +1,21 @@
+import { StyleSheet } from "react-native";
+import { primary } from "@app/app.style.config";
+
+export const style = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    btnCreateAccount: {
+        backgroundColor: primary, 
+        height: 50,
+        width: '100%'
+    },
+
+    buttonDisable: {
+        backgroundColor: '#66aaea'
+    }
+})

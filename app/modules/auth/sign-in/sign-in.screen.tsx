@@ -16,7 +16,7 @@ const SignInScreen = (props: any) => {
         <View style={style.container}>
             <KeyboardAvoidingView enabled behavior="padding">
                 <ScrollView contentContainerStyle={{ flexGrow: 1, paddingLeft: 15, paddingRight: 15, marginTop: '20%' }}>
-                    <Text onPress={() => props.toggleLoader(true)} style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
+                    <Text style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
                     <Input
                         placeholder='Phone number, username or email'
                         containerStyle={style.inputBox}
