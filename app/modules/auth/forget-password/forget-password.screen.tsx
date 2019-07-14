@@ -37,8 +37,8 @@ const ForgetPasswordScreen = (props: any) => {
 
                     <View style={{ alignItems: 'center' }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>Troble logging in?</Text>
-                        {isContinueWithEmail ? <View><Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500', marginBottom: 15 }}>Enter your username or email and we'll send you a password reset link to get back into your account.</Text></View> :
-                            <View><Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500', marginBottom: 15 }}>Enter your phone number and we'll send you a password reset link to get back into your account.</Text></View>}
+                        {isContinueWithEmail ? <View><Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500', marginBottom: 15, minHeight: 80  }}>Enter your username or email and we'll send you a password reset link to get back into your account.</Text></View> :
+                            <View><Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500', marginBottom: 15, minHeight: 80 }}>Enter your phone number and we'll send you a password reset link to get back into your account.</Text></View>}
                     </View>
 
                     <View style={{ flex: 1, flexDirection: 'row', marginBottom: 20 }}>
@@ -58,7 +58,9 @@ const ForgetPasswordScreen = (props: any) => {
                     {isContinueWithEmail ? <Input
                         placeholder='Username or email'
                         containerStyle={style.inputBox}
-                        inputContainerStyle={inputBox.primary}
+                        rightIcon={{ type: 'font-awesome', name: 'times-circle', color: gray }}
+                        rightIconContainerStyle={{display: 'none'}}
+                        inputContainerStyle={[inputBox.primary, { marginBottom: 0}]}
                     /> : <View style={[helper.bdwidth(1), style.phoneNumberContainer]}>
                             <Text
                                 onPress={() => toggleCountryModal(true)} 
@@ -66,6 +68,8 @@ const ForgetPasswordScreen = (props: any) => {
                             <Input
                                 placeholder='Phone'
                                 inputStyle={{ fontWeight: 'bold' }}
+                                rightIconContainerStyle={{display: 'none'}}
+                                rightIcon={{ type: 'font-awesome', name: 'times-circle', color: gray }}
                                 inputContainerStyle={[helper.bdwidth(0), { paddingLeft: 15}]}
                             />
                         </View>}
