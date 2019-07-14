@@ -9,4 +9,15 @@ export const theme = StyleSheet.create({
         color: primary,
         fontWeight: 'bold'
     }
-})
+});
+
+export const helper = {
+    bdwidth: (width: number) => {
+        return {
+            borderBottomWidth: width,
+            borderTopWidth: width,
+            borderRightWidth: width,
+            borderLeftWidth: width,
+        }
+    }
+}

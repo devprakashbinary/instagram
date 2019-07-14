@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { toggleLoader } from '@app/store/actions/loader.action';
 import inputBox from '@app/styles/input-box.style';
 import { primary, gray } from '@app/app.style.config';
-import { theme } from '@app/styles/theme.style';
+import { theme, helper } from '@app/styles/theme.style';
 import style from './forget-password.style';
 import { Input, Button } from 'react-native-elements';
 import Divider from '@app/shared/components/divider';
@@ -13,11 +13,17 @@ import FacebookLogin from '@app/shared/components/btn-facebook';
 import DialCodeList from '@app/shared/components/dial-code-list';
 import { ApiEndPoints } from '@app/core/models/interface/ApiEndPoint';
 import { RestApiService } from '@app/core/services/restapi.service';
+import { CountryDialCode } from '@app/core/models/interface/CountryDialCode';
 
 const restApiService = new RestApiService();
 const ForgetPasswordScreen = (props: any) => {
     const [isContinueWithEmail, setForgetOption] = useState(false);
     const [showCountryModal, toggleCountryModal] = useState(false);
+    const [dialCode, setDialCode] = useState({dial_code: '+91', name: 'India', code: 'IN'});
+    function onCountrySelect(event: CountryDialCode) {
+        setDialCode(event);
+        toggleCountryModal(false);
+    }
     return (
         <View style={style.container}>
             <KeyboardAvoidingView enabled behavior="padding">
@@ -53,15 +59,17 @@ const ForgetPasswordScreen = (props: any) => {
                         placeholder='Username or email'
                         containerStyle={style.inputBox}
                         inputContainerStyle={inputBox.primary}
-                    /> : <View>
-                            <Input 
-                            placeholder='Phone'
-                            containerStyle={style.inputBox}
-                            inputContainerStyle={inputBox.primary}
+                    /> : <View style={[helper.bdwidth(1), style.phoneNumberContainer]}>
+                            <Text
+                                onPress={() => toggleCountryModal(true)} 
+                                style={style.phoneDropdown}>{dialCode.code} {dialCode.dial_code}</Text>
+                            <Input
+                                placeholder='Phone'
+                                inputStyle={{ fontWeight: 'bold' }}
+                                inputContainerStyle={[helper.bdwidth(0), { paddingLeft: 15}]}
                             />
                         </View>}
                     <Button
-                        onPress={() => toggleCountryModal(true)}
                         title="Next"
                         buttonStyle={[style.loginButton, style.buttonDisable, { marginTop: 20 }]}
                     />
@@ -75,7 +83,7 @@ const ForgetPasswordScreen = (props: any) => {
             <View style={style.footer}>
                 <Text style={theme.primaryBold}>Back To Login In</Text>
             </View>
-            <DialCodeList visible={showCountryModal} close={(event: any) => toggleCountryModal(event)}/>
+            <DialCodeList visible={showCountryModal} close={(event: any) => toggleCountryModal(event)} onSelect={(event: CountryDialCode)=> onCountrySelect(event)} />
         </View>
     )
 }

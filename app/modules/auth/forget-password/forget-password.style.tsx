@@ -1,4 +1,4 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { gray } from '@app/app.style.config';
 import { primary } from '@app/app.style.config';
 
@@ -18,7 +18,7 @@ export default StyleSheet.create({
         marginBottom: 25
     },
     loginButton: {
-        backgroundColor: primary, 
+        backgroundColor: primary,
         height: 50
     },
     buttonDisable: {
@@ -29,12 +29,12 @@ export default StyleSheet.create({
         flex: 1
     },
     tab: {
-        flex: 1, 
+        flex: 1,
         borderBottomWidth: 2,
         paddingVertical: 10
     },
     tabText: {
-        textAlign: 'center', 
+        textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 22
     },
@@ -44,5 +44,21 @@ export default StyleSheet.create({
         borderColor: gray,
         borderTopWidth: 1,
         alignItems: 'center',
-      }
+    },
+    phoneDropdown: {
+        paddingRight: 15, 
+        paddingVertical: 5, 
+        borderRightWidth: 1, 
+        borderColor: gray, 
+        color: primary, 
+        fontWeight: 'bold' 
+    },
+    phoneNumberContainer: { 
+        backgroundColor:'#fafafa',
+        borderRadius: 5, 
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        paddingHorizontal: 15,
+        borderColor: gray
+    }
 })
