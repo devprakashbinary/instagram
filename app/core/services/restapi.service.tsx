@@ -1,12 +1,13 @@
 import axios from 'axios';
-import { APIDef, APIInput } from '@app/core/models/ApiEndPoints';
+import { APIDef, APIInput } from '@app/core/models/interface/ApiEndPoint';
 export class RestApiService {
-    public invoke<T>(def: APIDef, apiInput: APIInput = {}, data?: T, queryMap?: any) {
+    public invoke<T>(def: APIDef, apiInput?: APIInput, data?: T, queryMap?: any) {
+        debugger
         return this.invokeAPI(def.api(apiInput), def.method, data, queryMap);
     }
     private invokeAPI<T>(api: string, method: string, body?: T, queryMap?: any) {
         const headers = {
-            Accept: 'application/json',
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
         }
 
@@ -15,6 +16,7 @@ export class RestApiService {
             case 'POST':
                 return this.post<T>(api, body, httpOptions);
             case 'GET':
+                    debugger
                 return this.get<T>(api, httpOptions);
             case 'PUT':
                 return this.put<T>(api, body, httpOptions);
@@ -36,6 +38,7 @@ export class RestApiService {
     }
 
     private get<T>(apiUrl: any, httpOptions: any) {
+        debugger
         return axios({
             method: 'get',
             url: apiUrl,

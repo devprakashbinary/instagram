@@ -27,5 +27,22 @@ export default StyleSheet.create({
     socialContainer: {
         marginTop: '10%',
         flex: 1
-    }
+    },
+    tab: {
+        flex: 1, 
+        borderBottomWidth: 2,
+        paddingVertical: 10
+    },
+    tabText: {
+        textAlign: 'center', 
+        fontWeight: 'bold',
+        fontSize: 22
+    },
+    footer: {
+        textAlign: 'center',
+        padding: 10,
+        borderColor: gray,
+        borderTopWidth: 1,
+        alignItems: 'center',
+      }
 })

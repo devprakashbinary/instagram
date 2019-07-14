@@ -4,7 +4,7 @@ const inputBox = StyleSheet.create({
     primary: {
         backgroundColor: '#fafafa',
         borderColor: gray,
-        borderRadius: 3,
+        borderRadius: 5,
         borderLeftWidth: 1,
         borderRightWidth: 1,
         borderTopWidth: 1,
