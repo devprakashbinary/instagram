@@ -3,19 +3,19 @@ import { View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import { gray } from '@app/app.style.config';
 
 export default (props: any) => {
-    const [isContinueWithEmail, setForgetOption] = useState(false);
+    const [isLeftActive, setForgetOption] = useState(true);
     return (
-        <View style={{ flex: 1, flexDirection: 'row', marginBottom: 20 }}>
+        <View style={{flexDirection: 'row', marginBottom: 20 }}>
             <TouchableOpacity
                 onPress={(event) => {setForgetOption(true); props.onLeftClick(event)}}
-                style={[style.tab, { borderBottomColor: isContinueWithEmail ? '#000' : gray }]}
+                style={[style.tab, { borderBottomColor: isLeftActive ? '#000' : gray }]}
             >
-                <Text style={[style.tabText, { color: isContinueWithEmail ? '#000' : gray }]}>Username</Text>
+                <Text style={[style.tabText, { color: isLeftActive ? '#000' : gray }]}>{props.leftTitle}</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={(event) => {setForgetOption(false); props.onRightClick(event)}}
-                style={[style.tab, { borderBottomColor: !isContinueWithEmail ? '#000' : gray }]}>
-                <Text style={[style.tabText, { color: !isContinueWithEmail ? '#000' : gray }]}>Phone</Text>
+                style={[style.tab, { borderBottomColor: !isLeftActive ? '#000' : gray }]}>
+                <Text style={[style.tabText, { color: !isLeftActive ? '#000' : gray }]}>{props.rightTitle}</Text>
             </TouchableOpacity>
         </View>
     )

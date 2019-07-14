@@ -42,6 +42,8 @@ const ForgetPasswordScreen = (props: any) => {
                     <Tabs
                         onLeftClick={() => setForgetOption(true)}
                         onRightClick={() => setForgetOption(false)}
+                        leftTitle="Email"
+                        rightTitle="Phone"
                     />
 
                     {isContinueWithEmail ? <Input
