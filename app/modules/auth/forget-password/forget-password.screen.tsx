@@ -10,19 +10,17 @@ import style from './forget-password.style';
 import { Input, Button } from 'react-native-elements';
 import Divider from '@app/shared/components/divider';
 import FacebookLogin from '@app/shared/components/btn-facebook';
-import DialCodeList from '@app/shared/components/dial-code-list';
 import { ApiEndPoints } from '@app/core/models/interface/ApiEndPoint';
 import { RestApiService } from '@app/core/services/restapi.service';
 import { CountryDialCode } from '@app/core/models/interface/CountryDialCode';
-
+import PhoneInput from '@app/shared/components/phoneInput';
+import Tabs from '@app/shared/components/tabs';
 const restApiService = new RestApiService();
 const ForgetPasswordScreen = (props: any) => {
     const [isContinueWithEmail, setForgetOption] = useState(false);
-    const [showCountryModal, toggleCountryModal] = useState(false);
-    const [dialCode, setDialCode] = useState({dial_code: '+91', name: 'India', code: 'IN'});
+    const [dialCode, setDialCode] = useState({ dial_code: '+91', name: 'India', code: 'IN' });
     function onCountrySelect(event: CountryDialCode) {
         setDialCode(event);
-        toggleCountryModal(false);
     }
     return (
         <View style={style.container}>
@@ -37,47 +35,31 @@ const ForgetPasswordScreen = (props: any) => {
 
                     <View style={{ alignItems: 'center' }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>Troble logging in?</Text>
-                        {isContinueWithEmail ? <View><Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500', marginBottom: 15, minHeight: 80  }}>Enter your username or email and we'll send you a password reset link to get back into your account.</Text></View> :
+                        {isContinueWithEmail ? <View><Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500', marginBottom: 15, minHeight: 80 }}>Enter your username or email and we'll send you a password reset link to get back into your account.</Text></View> :
                             <View><Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '500', marginBottom: 15, minHeight: 80 }}>Enter your phone number and we'll send you a password reset link to get back into your account.</Text></View>}
                     </View>
 
-                    <View style={{ flex: 1, flexDirection: 'row', marginBottom: 20 }}>
-                        <TouchableOpacity
-                            onPress={() => setForgetOption(true)}
-                            style={[style.tab, { borderBottomColor: isContinueWithEmail ? '#000' : gray }]}
-                        >
-                            <Text style={[style.tabText, { color: isContinueWithEmail ? '#000' : gray }]}>Username</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => setForgetOption(false)}
-                            style={[style.tab, { borderBottomColor: !isContinueWithEmail ? '#000' : gray }]}>
-                            <Text style={[style.tabText, { color: !isContinueWithEmail ? '#000' : gray }]}>Phone</Text>
-                        </TouchableOpacity>
-                    </View>
+                    <Tabs
+                        onLeftClick={() => setForgetOption(true)}
+                        onRightClick={() => setForgetOption(false)}
+                    />
 
                     {isContinueWithEmail ? <Input
                         placeholder='Username or email'
                         containerStyle={style.inputBox}
                         rightIcon={{ type: 'font-awesome', name: 'times-circle', color: gray }}
-                        rightIconContainerStyle={{display: 'none'}}
-                        inputContainerStyle={[inputBox.primary, { marginBottom: 0}]}
-                    /> : <View style={[helper.bdwidth(1), style.phoneNumberContainer]}>
-                            <Text
-                                onPress={() => toggleCountryModal(true)} 
-                                style={style.phoneDropdown}>{dialCode.code} {dialCode.dial_code}</Text>
-                            <Input
-                                placeholder='Phone'
-                                inputStyle={{ fontWeight: 'bold' }}
-                                rightIconContainerStyle={{display: 'none'}}
-                                rightIcon={{ type: 'font-awesome', name: 'times-circle', color: gray }}
-                                inputContainerStyle={[helper.bdwidth(0), { paddingLeft: 15}]}
-                            />
-                        </View>}
+                        rightIconContainerStyle={{ display: 'none' }}
+                        inputContainerStyle={[inputBox.primary, { marginBottom: 0 }]}
+                    /> : <PhoneInput onSelect={(event: CountryDialCode) => onCountrySelect(event)} />}
+
+
                     <Button
                         title="Next"
                         buttonStyle={[style.loginButton, style.buttonDisable, { marginTop: 20 }]}
                     />
+
                     <View style={{ alignItems: 'center', marginTop: 20 }}><Text style={{ color: primary }}>Neet more help?</Text></View>
+                    
                     <View style={style.socialContainer}>
                         <Divider value={'OR'} />
                         <FacebookLogin />
@@ -87,7 +69,7 @@ const ForgetPasswordScreen = (props: any) => {
             <View style={style.footer}>
                 <Text style={theme.primaryBold}>Back To Login In</Text>
             </View>
-            <DialCodeList visible={showCountryModal} close={(event: any) => toggleCountryModal(event)} onSelect={(event: CountryDialCode)=> onCountrySelect(event)} />
+
         </View>
     )
 }

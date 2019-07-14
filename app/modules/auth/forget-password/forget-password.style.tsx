@@ -28,37 +28,11 @@ export default StyleSheet.create({
         marginTop: '10%',
         flex: 1
     },
-    tab: {
-        flex: 1,
-        borderBottomWidth: 2,
-        paddingVertical: 10
-    },
-    tabText: {
-        textAlign: 'center',
-        fontWeight: 'bold',
-        fontSize: 22
-    },
     footer: {
         textAlign: 'center',
         padding: 10,
         borderColor: gray,
         borderTopWidth: 1,
         alignItems: 'center',
-    },
-    phoneDropdown: {
-        paddingRight: 15, 
-        paddingVertical: 5, 
-        borderRightWidth: 1, 
-        borderColor: gray, 
-        color: primary, 
-        fontWeight: 'bold' 
-    },
-    phoneNumberContainer: { 
-        backgroundColor:'#fafafa',
-        borderRadius: 5, 
-        flexDirection: 'row', 
-        alignItems: 'center', 
-        paddingHorizontal: 15,
-        borderColor: gray
     }
 })
