@@ -19,7 +19,7 @@ import LoaderComponent from '@app/shared/components/loader.component';
 
 const App = (props: any) => {
   return (
-   <View style={{ flex: 1 }}>
+   <View style={{ flex: 1}}>
      <RouterOutlet/>
      {props.show && <LoaderComponent/>}
    </View>
