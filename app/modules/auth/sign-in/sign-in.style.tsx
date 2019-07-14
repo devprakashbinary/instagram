@@ -28,7 +28,7 @@ export default StyleSheet.create({
         backgroundColor: '#66aaea'
     },
     socialContainer: {
-        marginTop: 40,
+        marginTop: '10%',
         flex: 1
     },
     footer: {

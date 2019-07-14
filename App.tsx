@@ -15,7 +15,7 @@ import {
   View,
   Text
 } from 'react-native';
-import LoaderComponent from '@app/shared/components/loader.component';
+import LoaderComponent from '@app/shared/components/loader';
 
 const App = (props: any) => {
   return (
