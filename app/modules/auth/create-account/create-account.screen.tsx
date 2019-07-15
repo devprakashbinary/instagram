@@ -36,7 +36,7 @@ const CreateAccountScreen: FunctionComponent = (props: any) => {
                         />}
                     <Button
                         title="Next"
-                        buttonStyle={[style.loginButton, style.buttonDisable, { marginTop: 20 }]}
+                        buttonStyle={[style.btnNext, style.btnDisable, { marginTop: 20 }]}
                     />
                     {isContinueWithPhone && <Text style={{textAlign: 'center', fontSize: 16, color: gray, marginTop: 15}}>You may receive SMS updates from Instagram and can opt out at any time.</Text>}
                 </View>
