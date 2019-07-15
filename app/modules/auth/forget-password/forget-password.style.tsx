@@ -17,13 +17,6 @@ export default StyleSheet.create({
         alignItems: 'flex-end',
         marginBottom: 25
     },
-    loginButton: {
-        backgroundColor: primary,
-        height: 50
-    },
-    buttonDisable: {
-        backgroundColor: '#66aaea'
-    },
     socialContainer: {
         marginTop: '10%',
         flex: 1

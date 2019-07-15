@@ -1,21 +1,21 @@
 import React, { FunctionComponent } from 'react';
 import { View, Text } from 'react-native';
 import { style } from './sign-up.style';
-import { Button } from 'react-native-elements';
+import ButtonPrimary from '@app/shared/components/btn-lg';
 import { primary } from '@app/app.style.config';
 const SignUpScreen: FunctionComponent = (props: any) => {
     return (
         <View style={style.container}>
             <View style={{width: '100%', paddingHorizontal: 25}}>
                 <Text style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
-                <Button
-                    title="Create New Account"
-                    buttonStyle={[style.btnCreateAccount, {marginTop: 50}]}
+                <ButtonPrimary
+                title="Create New Account"
+                buttonStyle={{marginTop: 50}}
                 />
-                <Button
+                <ButtonPrimary
                     title="Log In"
                     titleStyle={{color: primary}}
-                    buttonStyle={[style.btnCreateAccount, {backgroundColor: 'none', marginTop: 10}]}
+                    buttonStyle={{marginTop: 50, backgroundColor: 'none'}}
                 />
             </View>
         </View>

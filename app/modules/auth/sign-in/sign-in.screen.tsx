@@ -7,10 +7,11 @@ import inputBox from '@app/styles/input-box.style';
 import { primary, gray } from '@app/app.style.config';
 import { theme } from '@app/styles/theme.style';
 import style from './sign-in.style';
-import { Input, Button } from 'react-native-elements';
+import { Input } from 'react-native-elements';
 import Divider from '@app/shared/components/divider';
 import FacebookLogin from '@app/shared/components/btn-facebook';
 import AuthFooter from '@app/shared/components/auth-footer';
+import BtnNext from '@app/shared/components/btn-lg';
 const SignInScreen = (props: any) => {
     return (
         <View style={style.container}>
@@ -30,9 +31,10 @@ const SignInScreen = (props: any) => {
                     <View style={style.forgetPasswordContainer}>
                         <Text style={theme.primaryBold}>Forgot password?</Text>
                     </View>
-                    <Button
+                    <BtnNext
                         title="Log In"
-                        buttonStyle={[style.loginButton, style.buttonDisable]}
+                        disabled={true}
+                        buttonStyle={{ marginTop: 20 }}
                     />
                     <View style={style.socialContainer}>
                         <Divider value={'OR'} />
@@ -40,7 +42,7 @@ const SignInScreen = (props: any) => {
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
-            <AuthFooter/>
+            <AuthFooter />
 
         </View>
     )
