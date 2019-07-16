@@ -15,8 +15,8 @@ import BtnNext from '@app/shared/components/btn-lg';
 const SignInScreen = (props: any) => {
     return (
         <View style={style.container}>
-            <KeyboardAvoidingView enabled behavior="padding">
-                <ScrollView contentContainerStyle={{ flexGrow: 1, paddingLeft: 15, paddingRight: 15, marginTop: '20%' }}>
+            <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ width: '100%', paddingHorizontal: 15 }}>
                     <Text style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
                     <Input
                         placeholder='Phone number, username or email'
@@ -34,14 +34,15 @@ const SignInScreen = (props: any) => {
                     <BtnNext
                         title="Log In"
                         disabled={true}
+                        backgroundColor={primary}
                         buttonStyle={{ marginTop: 20 }}
                     />
                     <View style={style.socialContainer}>
                         <Divider value={'OR'} />
                         <FacebookLogin />
                     </View>
-                </ScrollView>
-            </KeyboardAvoidingView>
+                </View>
+            </View>
             <AuthFooter />
 
         </View>

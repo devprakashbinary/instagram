@@ -24,6 +24,7 @@ const OTPScreen: FunctionComponent = (props: any) => {
                 <BtnNext
                     title="Next"
                     disabled={true}
+                    backgroundColor={primary}
                     buttonStyle={{width: '100%'}}
                 />
             </View>

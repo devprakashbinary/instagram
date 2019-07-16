@@ -14,10 +14,12 @@ import { CountryDialCode } from '@app/core/models/interface/CountryDialCode';
 import PhoneInput from '@app/shared/components/phoneInput';
 import Tabs from '@app/shared/components/tabs';
 import BtnNext from '@app/shared/components/btn-lg';
+import AccountAssistance from '@app/shared/components/account-assistance';
 
 
 const ForgetPasswordScreen = (props: any) => {
     const [isContinueWithEmail, setForgetOption] = useState(false);
+    const [toggleAccountAssitance, setToggleAccountAssitance] = useState(false);
     const [dialCode, setDialCode] = useState({ dial_code: '+91', name: 'India', code: 'IN' });
     function onCountrySelect(event: CountryDialCode) {
         setDialCode(event);
@@ -57,9 +59,10 @@ const ForgetPasswordScreen = (props: any) => {
                     <BtnNext
                         title="Next"
                         disabled={true}
+                        backgroundColor={primary}
                         buttonStyle={{ marginTop: 20 }}
                     />
-                    <View style={{ alignItems: 'center', marginTop: 20 }}><Text style={{ color: primary }}>Neet more help?</Text></View>
+                    <View style={{ alignItems: 'center', marginTop: 20 }}><Text style={{ color: primary }} onPress={() => setToggleAccountAssitance(true)}>Neet more help?</Text></View>
 
                     <View style={style.socialContainer}>
                         <Divider value={'OR'} />
@@ -70,6 +73,7 @@ const ForgetPasswordScreen = (props: any) => {
             <View style={style.footer}>
                 <Text style={theme.primaryBold}>Back To Login In</Text>
             </View>
+            <AccountAssistance close={(event: boolean) => setToggleAccountAssitance(event)} visible={toggleAccountAssitance}/>
 
         </View>
     )

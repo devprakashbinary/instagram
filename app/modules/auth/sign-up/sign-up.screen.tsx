@@ -10,10 +10,12 @@ const SignUpScreen: FunctionComponent = (props: any) => {
                 <Text style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
                 <ButtonPrimary
                 title="Create New Account"
+                backgroundColor={primary}
                 buttonStyle={{marginTop: 50}}
                 />
                 <ButtonPrimary
                     title="Log In"
+                    backgroundColor="none"
                     titleStyle={{color: primary}}
                     buttonStyle={{marginTop: 50, backgroundColor: 'none'}}
                 />
