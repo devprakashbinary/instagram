@@ -14,7 +14,7 @@ import AlreadyRegisteredModal from '@app/shared/components/modals/already-user';
 const CreateAccountScreen: FunctionComponent = (props: any) => {
     const [isContinueWithPhone, setForgetOption] = useState(true);
     const [isAlreadyPhoneExist, setAlreadyPhone] = useState(false);
-    const [isAlreadyEmailExist, setAlreadyEmail] = useState(true);
+    const [isAlreadyEmailExist, setAlreadyEmail] = useState(false);
     const [dialCode, setDialCode] = useState({ dial_code: '+91', name: 'India', code: 'IN' });
     function onCountrySelect(event: CountryDialCode) {
         setDialCode(event);
