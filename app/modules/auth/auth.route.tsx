@@ -16,6 +16,9 @@ import OTPScreen from './otp/otp.screen';
 
 
 const AuthNavigator = createStackNavigator({
+    [SIGN_IN_SCREEN]: {
+        screen: SignInScreen
+    },
     [FORGET_PASSWORD]: {
         screen: ForgotPasswordScreen
     },
@@ -27,9 +30,6 @@ const AuthNavigator = createStackNavigator({
     },
     [OTP_SCREEN]: {
         screen: OTPScreen
-    },
-    [SIGN_IN_SCREEN]: {
-        screen: SignInScreen
     },
     [SIGN_UP_SCREEN]: {
         screen: SignUpScreen

@@ -8,17 +8,20 @@ import { Input, Button } from 'react-native-elements';
 import inputBox from '@app/styles/input-box.style';
 import { gray } from '@app/app.style.config';
 import AuthFooter from '@app/shared/components/auth-footer';
-
+import { OTP_SCREEN } from '@app/route/app.route-labels';
+import AlreadyRegisteredModal from '@app/shared/components/modals/already-user';
 
 const CreateAccountScreen: FunctionComponent = (props: any) => {
     const [isContinueWithPhone, setForgetOption] = useState(true);
+    const [isAlreadyPhoneExist, setAlreadyPhone] = useState(false);
+    const [isAlreadyEmailExist, setAlreadyEmail] = useState(true);
     const [dialCode, setDialCode] = useState({ dial_code: '+91', name: 'India', code: 'IN' });
     function onCountrySelect(event: CountryDialCode) {
         setDialCode(event);
     }
     return (
         <View style={style.container}>
-            <View style={{paddingHorizontal: 30}}>
+            <View style={{ paddingHorizontal: 30 }}>
                 <Tab
                     onLeftClick={() => { setForgetOption(true) }}
                     onRightClick={() => { setForgetOption(false) }}
@@ -35,13 +38,16 @@ const CreateAccountScreen: FunctionComponent = (props: any) => {
                             inputContainerStyle={[inputBox.primary, { marginBottom: 0 }]}
                         />}
                     <Button
+                        onPress={() => props.navigation.navigate(OTP_SCREEN)}
                         title="Next"
                         buttonStyle={[style.btnNext, style.btnDisable, { marginTop: 20 }]}
                     />
-                    {isContinueWithPhone && <Text style={{textAlign: 'center', fontSize: 16, color: gray, marginTop: 15}}>You may receive SMS updates from Instagram and can opt out at any time.</Text>}
+                    {isContinueWithPhone && <Text style={{ textAlign: 'center', fontSize: 16, color: gray, marginTop: 15 }}>You may receive SMS updates from Instagram and can opt out at any time.</Text>}
                 </View>
             </View>
-            <AuthFooter/>
+            <AuthFooter />
+            <AlreadyRegisteredModal isVisible={isAlreadyPhoneExist} checkEmailAddress={false} />
+            <AlreadyRegisteredModal isVisible={isAlreadyEmailExist} checkEmailAddress={true} />
 
         </View>
     )

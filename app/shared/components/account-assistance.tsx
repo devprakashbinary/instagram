@@ -20,11 +20,11 @@ export default (props: AccountAssitanceProps) => {
             animationType="slide"
             transparent={false}
             visible={props.visible}>
+            <View style={style.headerContainer}>
+                <Text style={style.headerTitle}>Account Assistance</Text>
+                <TouchableOpacity onPress={() => props.close(false)} style={style.btnDone}><Text style={{ fontSize: 18, fontWeight: 'bold' }}>Done</Text></TouchableOpacity>
+            </View>
             <ScrollView>
-                <View style={style.headerContainer}>
-                    <Text style={style.headerTitle}>Account Assistance</Text>
-                    <TouchableOpacity onPress={() => props.close(false)} style={style.btnDone}><Text style={{ fontSize: 18, fontWeight: 'bold' }}>Done</Text></TouchableOpacity>
-                </View>
                 <View style={style.searchBarContainer}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <View style={{ paddingRight: 20, borderRightWidth: 1, borderRightColor: gray }}>

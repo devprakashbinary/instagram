@@ -12,9 +12,13 @@ const OTPScreen: FunctionComponent = (props: any) => {
             <View style={{ paddingHorizontal: 30, alignItems: 'center', paddingTop: 50 }}>
                 <Text style={{ textAlign: 'center', fontSize: 28, marginBottom: 25 }}>Enter the Code We Sent to +919999666041</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 25 }}>
-                    <TouchableOpacity><Text style={{ color: primary, fontWeight: 'bold', fontSize: 20 }}>Change phone number</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => props.navigation.goBack()}>
+                        <Text style={{ color: primary, fontWeight: 'bold', fontSize: 20 }}>Change phone number</Text>
+                    </TouchableOpacity>
                     <Text style={{ fontSize: 20 }}> or </Text>
-                    <TouchableOpacity><Text style={{ color: primary, fontWeight: 'bold', fontSize: 20 }}>resend SMS</Text></TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text style={{ color: primary, fontWeight: 'bold', fontSize: 20 }}>resend SMS</Text>
+                    </TouchableOpacity>
                 </View>
                 <Input
                     placeholder="Confirmation Code"
@@ -25,11 +29,11 @@ const OTPScreen: FunctionComponent = (props: any) => {
                     title="Next"
                     disabled={true}
                     backgroundColor={primary}
-                    buttonStyle={{width: '100%'}}
+                    buttonStyle={{ width: '100%' }}
                 />
             </View>
             <View style={style.footer}>
-                <Text style={{ color: primary , fontWeight: 'bold'}}>Back</Text>
+                <Text style={{ color: primary, fontWeight: 'bold' }} onPress={() => props.navigation.goBack()}>Back</Text>
             </View>
         </View>
     )

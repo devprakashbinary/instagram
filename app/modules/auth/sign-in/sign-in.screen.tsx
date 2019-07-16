@@ -12,6 +12,8 @@ import Divider from '@app/shared/components/divider';
 import FacebookLogin from '@app/shared/components/btn-facebook';
 import AuthFooter from '@app/shared/components/auth-footer';
 import BtnNext from '@app/shared/components/btn-lg';
+import { FORGET_PASSWORD } from '@app/route/app.route-labels';
+
 const SignInScreen = (props: any) => {
     return (
         <View style={style.container}>
@@ -29,7 +31,7 @@ const SignInScreen = (props: any) => {
                         inputContainerStyle={inputBox.primary}
                     />
                     <View style={style.forgetPasswordContainer}>
-                        <Text style={theme.primaryBold}>Forgot password?</Text>
+                        <Text style={theme.primaryBold} onPress={() => props.navigation.navigate(FORGET_PASSWORD)}>Forgot password?</Text>
                     </View>
                     <BtnNext
                         title="Log In"
@@ -43,7 +45,7 @@ const SignInScreen = (props: any) => {
                     </View>
                 </View>
             </View>
-            <AuthFooter />
+            <AuthFooter parentProps={props}/>
 
         </View>
     )

@@ -18,7 +18,7 @@ import AccountAssistance from '@app/shared/components/account-assistance';
 
 
 const ForgetPasswordScreen = (props: any) => {
-    const [isContinueWithEmail, setForgetOption] = useState(false);
+    const [isContinueWithEmail, setForgetOption] = useState(true);
     const [toggleAccountAssitance, setToggleAccountAssitance] = useState(false);
     const [dialCode, setDialCode] = useState({ dial_code: '+91', name: 'India', code: 'IN' });
     function onCountrySelect(event: CountryDialCode) {
@@ -71,7 +71,7 @@ const ForgetPasswordScreen = (props: any) => {
                 </ScrollView>
             </KeyboardAvoidingView>
             <View style={style.footer}>
-                <Text style={theme.primaryBold}>Back To Login In</Text>
+                <Text style={theme.primaryBold} onPress={() => props.navigation.goBack()}>Back To Login In</Text>
             </View>
             <AccountAssistance close={(event: boolean) => setToggleAccountAssitance(event)} visible={toggleAccountAssitance}/>
 
