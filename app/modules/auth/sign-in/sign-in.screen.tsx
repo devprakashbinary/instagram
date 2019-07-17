@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, KeyboardAvoidingView, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, KeyboardAvoidingView, Alert, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toggleLoader } from '@app/store/actions/loader.action';
@@ -18,7 +18,7 @@ import { WRONG_PASSWORD } from '@app/core/models/String';
 
 function wrongCredentials(auth: any) {
     Alert.alert(
-        WRONG_PASSWORD.title({username: auth.username}),
+        WRONG_PASSWORD.title({ username: auth.username }),
         WRONG_PASSWORD.message,
         [
             { text: 'Try Again', onPress: () => console.log('Ask me later pressed') }
@@ -41,38 +41,40 @@ const SignInScreen = (props: any) => {
     return (
         <View style={style.container}>
             <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ width: '100%', paddingHorizontal: 15 }}>
-                    <Text style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
-                    <Input
-                        placeholder='Phone number, username or email'
-                        containerStyle={style.inputBox}
-                        inputContainerStyle={inputBox.primary}
-                        onChangeText={(text) => setAuth({ ...auth, username: text })}
-                    />
-                    <Input
-                        placeholder='Password'
-                        containerStyle={style.inputBox}
-                        inputContainerStyle={inputBox.primary}
-                        secureTextEntry={true}
-                        returnKeyType="send"
-                        onChangeText={(text) => setAuth({ ...auth, password: text })}
-                        onSubmitEditing={() => login(auth)}
-                    />
-                    <View style={style.forgetPasswordContainer}>
-                        <Text style={theme.primaryBold} onPress={() => props.navigation.navigate(FORGET_PASSWORD)}>Forgot password?</Text>
-                    </View>
-                    <BtnNext
-                        title="Log In"
-                        disabled={(auth.username === '' || auth.password === '')}
-                        backgroundColor={primary}
-                        buttonStyle={{ marginTop: 20 }}
-                        onPress={() => login(auth)}
-                    />
-                    <View style={style.socialContainer}>
-                        <Divider value={'OR'} />
-                        <FacebookLogin />
-                    </View>
-                </View>
+                <KeyboardAvoidingView style={{width: '100%'}} behavior="height">
+                    <ScrollView contentContainerStyle={{ paddingHorizontal: 15, flexGrow: 1}}>
+                        <Text style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
+                        <Input
+                            placeholder='Phone number, username or email'
+                            containerStyle={style.inputBox}
+                            inputContainerStyle={inputBox.primary}
+                            onChangeText={(text) => setAuth({ ...auth, username: text })}
+                        />
+                        <Input
+                            placeholder='Password'
+                            containerStyle={style.inputBox}
+                            inputContainerStyle={inputBox.primary}
+                            secureTextEntry={true}
+                            returnKeyType="send"
+                            onChangeText={(text) => setAuth({ ...auth, password: text })}
+                            onSubmitEditing={() => login(auth)}
+                        />
+                        <View style={style.forgetPasswordContainer}>
+                            <Text style={theme.primaryBold} onPress={() => props.navigation.navigate(FORGET_PASSWORD)}>Forgot password?</Text>
+                        </View>
+                        <BtnNext
+                            title="Log In"
+                            disabled={(auth.username === '' || auth.password === '')}
+                            backgroundColor={primary}
+                            buttonStyle={{ marginTop: 20 }}
+                            onPress={() => login(auth)}
+                        />
+                        <View style={style.socialContainer}>
+                            <Divider value={'OR'} />
+                            <FacebookLogin />
+                        </View>
+                    </ScrollView>
+                </KeyboardAvoidingView>
             </View>
             <AuthFooter parentProps={props} />
 
