@@ -14,7 +14,7 @@ export default (props: ModalInterface) => {
                             source={{ uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg' }}
                             style={{ width: 80, height: 80, borderRadius: 100 }}
                         />
-                        <Text style={style.heading}>Log in as developer.prakash?</Text>
+                        <Text style={style.heading}>Log in as {props.username}?</Text>
                         {props.checkEmailAddress ? <Text style={style.paragraph}>It looks like you alreday have an Instagram account.
                         You can only have one account per email address.</Text>
                             : <Text style={{ fontSize: 16, textAlign: 'center', fontWeight: 'bold' }}>It looks like you alreday have an Instagram account.</Text>}
@@ -23,12 +23,13 @@ export default (props: ModalInterface) => {
                     <View style={style.footerContainer}>
                         <Button
                             backgroundColor={primary}
-                            title="Countine as developer.prakash"
+                            title={`Countine as ${props.username}`}
                         />
                         <Button
                             backgroundColor="none"
                             title="Create New Account"
                             titleStyle={{ color: primary }}
+                            onPress={() => props.close(false)}
                         />
                     </View>
                 </View>
@@ -41,6 +42,8 @@ export default (props: ModalInterface) => {
 interface ModalInterface {
     isVisible: boolean;
     checkEmailAddress: boolean;
+    close: any;
+    username?: string;
 }
 
 const style = StyleSheet.create({

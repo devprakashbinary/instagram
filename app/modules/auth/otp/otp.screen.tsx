@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import style from './otp.style';
 import { Text, Input } from 'react-native-elements';
@@ -7,6 +7,7 @@ import BtnNext from '@app/shared/components/btn-lg';
 import { primary } from '@app/app.style.config';
 
 const OTPScreen: FunctionComponent = (props: any) => {
+    const [otp, setOTP] = useState(null)
     return (
         <View style={style.container}>
             <View style={{ paddingHorizontal: 30, alignItems: 'center', paddingTop: 50 }}>
@@ -24,10 +25,13 @@ const OTPScreen: FunctionComponent = (props: any) => {
                     placeholder="Confirmation Code"
                     containerStyle={{ paddingHorizontal: 0 }}
                     inputContainerStyle={inputBox.primary}
+                    keyboardType="numeric"
+                    returnKeyType="send"
+                    onChangeText={(text) => setOTP(text)}
                 />
                 <BtnNext
                     title="Next"
-                    disabled={true}
+                    disabled={otp === ''}
                     backgroundColor={primary}
                     buttonStyle={{ width: '100%' }}
                 />

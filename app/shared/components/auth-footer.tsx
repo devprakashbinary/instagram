@@ -5,12 +5,16 @@ import { theme } from '@app/styles/theme.style';
 import { gray } from '@app/app.style.config';
 import { SIGN_UP_SCREEN } from '@app/route/app.route-labels';
 
-export default (props: any) => {
+export default (props: AuthFooterProps) => {
     return (
         <View style={style.footer}>
             <Text>Don't have an account? <Text style={theme.primaryBold} onPress={() => props.parentProps.navigation.navigate(SIGN_UP_SCREEN)}>Sign Up.</Text></Text>
         </View>
     )
+}
+
+interface AuthFooterProps {
+    parentProps: any;
 }
 
 const style = StyleSheet.create({

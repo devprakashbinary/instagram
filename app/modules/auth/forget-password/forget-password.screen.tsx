@@ -15,18 +15,20 @@ import PhoneInput from '@app/shared/components/phoneInput';
 import Tabs from '@app/shared/components/tabs';
 import BtnNext from '@app/shared/components/btn-lg';
 import AccountAssistance from '@app/shared/components/account-assistance';
+import { OTP_SCREEN } from '@app/route/app.route-labels';
 
 
 const ForgetPasswordScreen = (props: any) => {
     const [isContinueWithEmail, setForgetOption] = useState(true);
     const [toggleAccountAssitance, setToggleAccountAssitance] = useState(false);
     const [dialCode, setDialCode] = useState({ dial_code: '+91', name: 'India', code: 'IN' });
+    const [auth, setAuthData] = useState({ email: '', phone: '' });
     function onCountrySelect(event: CountryDialCode) {
         setDialCode(event);
     }
     return (
         <View style={style.container}>
-            <KeyboardAvoidingView enabled behavior="padding">
+            <KeyboardAvoidingView enabled behavior="height">
                 <ScrollView contentContainerStyle={{ flexGrow: 1, paddingLeft: 25, paddingRight: 25, marginTop: '5%' }}>
                     <View style={{ alignItems: 'center', marginBottom: 20 }}>
                         <Image
@@ -54,13 +56,21 @@ const ForgetPasswordScreen = (props: any) => {
                         rightIcon={{ type: 'font-awesome', name: 'times-circle', color: gray }}
                         rightIconContainerStyle={{ display: 'none' }}
                         inputContainerStyle={[inputBox.primary, { marginBottom: 0 }]}
-                    /> : <PhoneInput onSelect={(event: CountryDialCode) => onCountrySelect(event)} />}
+                        returnKeyType="send"
+                        onChangeText={(text: any) => setAuthData({ ...auth, email: text })}
+                    /> : <PhoneInput
+                            onSelect={(event: CountryDialCode) => onCountrySelect(event)}
+                            returnKeyType="send"
+                            keyboardType="numeric"
+                            onChangeText={(text: any) => setAuthData({...text, phone: text})}
+                        />}
 
                     <BtnNext
                         title="Next"
-                        disabled={true}
+                        disabled={((auth.email === '' && isContinueWithEmail) || (auth.phone === '' && !isContinueWithEmail))}
                         backgroundColor={primary}
                         buttonStyle={{ marginTop: 20 }}
+                        onPress={() => props.navigation.navigate(OTP_SCREEN)}
                     />
                     <View style={{ alignItems: 'center', marginTop: 20 }}><Text style={{ color: primary }} onPress={() => setToggleAccountAssitance(true)}>Neet more help?</Text></View>
 
@@ -73,7 +83,7 @@ const ForgetPasswordScreen = (props: any) => {
             <View style={style.footer}>
                 <Text style={theme.primaryBold} onPress={() => props.navigation.goBack()}>Back To Login In</Text>
             </View>
-            <AccountAssistance close={(event: boolean) => setToggleAccountAssitance(event)} visible={toggleAccountAssitance}/>
+            <AccountAssistance close={(event: boolean) => setToggleAccountAssitance(event)} visible={toggleAccountAssitance} />
 
         </View>
     )

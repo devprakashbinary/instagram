@@ -4,6 +4,8 @@ import { style } from './sign-in-as.style';
 import ButtonPrimary from '@app/shared/components/btn-lg';
 import { primary } from '@app/app.style.config';
 import AuthFooter from '@app/shared/components/auth-footer';
+import { AuthData } from '@app/core/mock/AuthData';
+import { SIGN_IN_SCREEN } from '@app/route/app.route-labels';
 const SignInAsScreen: FunctionComponent = (props: any) => {
     return (
         <View style={style.container}>
@@ -16,20 +18,22 @@ const SignInAsScreen: FunctionComponent = (props: any) => {
                             style={{ width: 80, height: 80, borderRadius: 100 }}
                         />
                     </View>
-                    <Text style={{ textAlign: 'center', fontWeight: 'bold', marginVertical: 15 }}>developer.prakash</Text>
+                    <Text style={{ textAlign: 'center', fontWeight: 'bold', marginVertical: 15 }}>{AuthData.username}</Text>
                     <ButtonPrimary
                         title="Log In"
                         backgroundColor={primary}
+                        onPress={() => console.log('sdfsadfdsf')}
                     />
                     <ButtonPrimary
                         title="Log In With Another Account"
                         titleStyle={{ color: primary }}
                         backgroundColor='none'
                         buttonStyle={{ marginTop: 20 }}
+                        onPress={() => props.navigation.navigate(SIGN_IN_SCREEN)}
                     />
                 </View>
             </View>
-            <AuthFooter />
+            <AuthFooter parentProps={props}/>
         </View>
     )
 }

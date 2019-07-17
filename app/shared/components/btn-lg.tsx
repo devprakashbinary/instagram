@@ -10,6 +10,7 @@ export default (props: ButtonLGProps) => {
             disabledStyle={{ backgroundColor: '#66aaea' }}
             disabledTitleStyle={{color: '#fff'}}
             titleStyle={props.titleStyle}
+            disabled={props.disabled}
             buttonStyle={[{ height: 50, backgroundColor: props.backgroundColor }, props.buttonStyle]}
             containerStyle={[{width: '100%' }, props.containerStyle]}
         />

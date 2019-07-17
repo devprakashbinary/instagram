@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import { helper } from '@app/styles/theme.style';
@@ -15,31 +15,32 @@ export default (props: any) => {
                 onPress={() => toggleCountryModal(true)}
                 style={style.phoneDropdown}>{dialCode.code} {dialCode.dial_code}</Text>
             <Input
+                {...props}
                 placeholder='Phone'
                 inputStyle={{ fontWeight: 'bold' }}
                 rightIconContainerStyle={{ display: 'none' }}
                 rightIcon={{ type: 'font-awesome', name: 'times-circle', color: gray }}
                 inputContainerStyle={[helper.bdwidth(0), { paddingLeft: 15 }]}
             />
-            <DialCodeList visible={showCountryModal} close={(event: any) => toggleCountryModal(false)} onSelect={(event: CountryDialCode) => {props.onSelect(event); setDialCode(event), toggleCountryModal(false)}} />
+            <DialCodeList visible={showCountryModal} close={(event: any) => toggleCountryModal(false)} onSelect={(event: CountryDialCode) => { props.onSelect(event); setDialCode(event), toggleCountryModal(false) }} />
         </View>
     )
 }
 
 const style = StyleSheet.create({
     phoneDropdown: {
-        paddingRight: 15, 
-        paddingVertical: 5, 
-        borderRightWidth: 1, 
-        borderColor: gray, 
-        color: primary, 
-        fontWeight: 'bold' 
+        paddingRight: 15,
+        paddingVertical: 5,
+        borderRightWidth: 1,
+        borderColor: gray,
+        color: primary,
+        fontWeight: 'bold'
     },
-    phoneNumberContainer: { 
-        backgroundColor:'#fafafa',
-        borderRadius: 5, 
-        flexDirection: 'row', 
-        alignItems: 'center', 
+    phoneNumberContainer: {
+        backgroundColor: '#fafafa',
+        borderRadius: 5,
+        flexDirection: 'row',
+        alignItems: 'center',
         paddingHorizontal: 15,
         borderColor: gray
     }
