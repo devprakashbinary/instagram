@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import { helper } from '@app/styles/theme.style';
 import { gray, primary } from '@app/app.style.config';
-import DialCodeList from '@app/shared/components/dial-code-list';
+import DialCodeList from '@app/shared/components/modals/dial-code-list';
 import { CountryDialCode } from '@app/core/models/interface/CountryDialCode';
 
 export default (props: any) => {

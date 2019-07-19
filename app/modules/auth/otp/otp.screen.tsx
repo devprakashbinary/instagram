@@ -8,10 +8,12 @@ import { primary } from '@app/app.style.config';
 
 const OTPScreen: FunctionComponent = (props: any) => {
     const [otp, setOTP] = useState(null)
+    debugger;
+    const auth = props.navigation.getParam('auth', {phone: '', emailAddress: ''});
     return (
         <View style={style.container}>
             <View style={{ paddingHorizontal: 30, alignItems: 'center', paddingTop: 50 }}>
-                <Text style={{ textAlign: 'center', fontSize: 28, marginBottom: 25 }}>Enter the Code We Sent to +919999666041</Text>
+                <Text style={{ textAlign: 'center', fontSize: 28, marginBottom: 25 }}>Enter the Code We Sent to {auth.phone}</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 25 }}>
                     <TouchableOpacity onPress={() => props.navigation.goBack()}>
                         <Text style={{ color: primary, fontWeight: 'bold', fontSize: 20 }}>Change phone number</Text>

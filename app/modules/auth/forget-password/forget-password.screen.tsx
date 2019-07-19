@@ -14,7 +14,7 @@ import { CountryDialCode } from '@app/core/models/interface/CountryDialCode';
 import PhoneInput from '@app/shared/components/phoneInput';
 import Tabs from '@app/shared/components/tabs';
 import BtnNext from '@app/shared/components/btn-lg';
-import AccountAssistance from '@app/shared/components/account-assistance';
+import AccountAssistance from '@app/shared/components/modals/account-assistance';
 import { OTP_SCREEN } from '@app/route/app.route-labels';
 
 

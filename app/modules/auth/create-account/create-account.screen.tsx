@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import Tab from '@app/shared/components/tabs';
 import PhoneInput from '@app/shared/components/phoneInput';
 import style from './create-account.style';
@@ -32,7 +32,7 @@ const CreateAccountScreen: FunctionComponent = (props: any) => {
                 setAlreadyEmail(true);
             }
         } else {
-            props.navigation.navigate(OTP_SCREEN);
+            props.navigation.navigate(OTP_SCREEN, {phone: auth});
         }
     }
 
@@ -69,11 +69,11 @@ const CreateAccountScreen: FunctionComponent = (props: any) => {
                     {isContinueWithPhone && <Text style={{ textAlign: 'center', fontSize: 16, color: gray, marginTop: 15 }}>You may receive SMS updates from Instagram and can opt out at any time.</Text>}
                 </View>
             </View>
-            <AlreadyRegisteredModal isVisible={isAlreadyPhoneExist} username={auth.username} close={() => setAlreadyPhone(false)} checkEmailAddress={false} />
-            <AlreadyRegisteredModal isVisible={isAlreadyEmailExist} username={auth.username} close={() => setAlreadyEmail(false)} checkEmailAddress={true} />
-            <AuthFooter parentProps={props}/>
+            <AlreadyRegisteredModal isVisible={isAlreadyPhoneExist} username={auth.username} close={() => { setAlreadyPhone(false); props.navigation.navigate(OTP_SCREEN, {auth}) }} checkEmailAddress={false} />
+            <AlreadyRegisteredModal isVisible={isAlreadyEmailExist} username={auth.username} close={() => { setAlreadyEmail(false); props.navigation.navigate(OTP_SCREEN, {auth})}} checkEmailAddress={true} />
+            <AuthFooter parentProps={props} />
 
-           
+
 
         </View>
     )

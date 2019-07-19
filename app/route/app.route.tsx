@@ -1,12 +1,10 @@
 import { createSwitchNavigator } from 'react-navigation';
-import { SPLASH_NAVIGATOR, AUTH_NAVIGATOR } from './app.route-labels';
-import SplashNavigator from '@app/modules/splash/splash.route';
+import { AUTH_NAVIGATOR } from './app.route-labels';
 import AuthNavigator from '@app/modules/auth/auth.route';
 
 const RouterOutlet = createSwitchNavigator(
     {
-        [AUTH_NAVIGATOR]: AuthNavigator,
-        // [SPLASH_NAVIGATOR]: SplashNavigator
+        [AUTH_NAVIGATOR]: AuthNavigator
     },
     {
         initialRouteName: AUTH_NAVIGATOR
