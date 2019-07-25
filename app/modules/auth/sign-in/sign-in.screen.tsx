@@ -42,7 +42,7 @@ const SignInScreen = (props: any) => {
         <View style={style.container}>
             <View style={{ flexDirection: 'column', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <KeyboardAvoidingView style={{width: '100%'}} behavior="height">
-                    <ScrollView contentContainerStyle={{ paddingHorizontal: 15, flexGrow: 1}}>
+                    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 15, flexGrow: 1}}>
                         <Text style={{ fontFamily: 'Billabong', fontSize: 60, textAlign: 'center' }}>Instagram</Text>
                         <Input
                             placeholder='Phone number, username or email'

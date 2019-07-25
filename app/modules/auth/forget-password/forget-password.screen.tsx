@@ -29,7 +29,7 @@ const ForgetPasswordScreen = (props: any) => {
     return (
         <View style={style.container}>
             <KeyboardAvoidingView enabled behavior="height">
-                <ScrollView contentContainerStyle={{ flexGrow: 1, paddingLeft: 25, paddingRight: 25, marginTop: '5%' }}>
+                <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, paddingLeft: 25, paddingRight: 25, marginTop: '5%' }}>
                     <View style={{ alignItems: 'center', marginBottom: 20 }}>
                         <Image
                             source={require('@app/assets/images/lock.png')}
