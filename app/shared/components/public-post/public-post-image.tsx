@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import { Image } from 'react-native-elements';
+import Carousel from 'react-native-snap-carousel';
 
 
 const PublicPostImageComponent = (props: any) => {
@@ -11,6 +12,7 @@ const PublicPostImageComponent = (props: any) => {
                 style={{ width: '100%' , height: 400}}
                 PlaceholderContent={<ActivityIndicator />}
             />
+            {/* <Carousel/> */}
         </View>
     )
 }

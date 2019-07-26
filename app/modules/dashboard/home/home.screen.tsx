@@ -13,6 +13,7 @@ const HomeScreen: FunctionComponent = () => {
                 <StoryBarComponent />
                 <PublicPostComponent />
                 <PublicPostComponent />
+                <PublicPostComponent />
             </ScrollView>
         </View>
     )

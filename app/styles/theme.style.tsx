@@ -12,12 +12,24 @@ export const theme = StyleSheet.create({
 });
 
 export const helper = {
-    bdwidth: (width: number) => {
+    bdwidth: (value: number) => {
         return {
-            borderBottomWidth: width,
-            borderTopWidth: width,
-            borderRightWidth: width,
-            borderLeftWidth: width,
+            borderBottomWidth: value,
+            borderTopWidth: value,
+            borderRightWidth: value,
+            borderLeftWidth: value,
+        }
+    },
+    padding: (value: number) => {
+        return {
+            paddingVertical: value,
+            paddingHorizontal: value,
+        }
+    },
+    margin: (value: number) => {
+        return {
+            paddingVertical: value,
+            paddingHorizontal: value,
         }
     }
 }
