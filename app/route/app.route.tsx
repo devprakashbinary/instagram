@@ -9,7 +9,7 @@ const RouterOutlet = createSwitchNavigator(
         [DASHBOARD_NAVIGATOR]: DashboardNavigator
     },
     {
-        initialRouteName: DASHBOARD_NAVIGATOR
+        initialRouteName: AUTH_NAVIGATOR
     }
 );
 

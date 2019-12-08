@@ -20,8 +20,8 @@ const PublicPostStatusBarComponent = (props: any) => {
                     <Avatar source={{
                         uri: 'https://instagram.fdel19-1.fna.fbcdn.net/vp/ae28f947b8d29d5fb584adad00cec2ac/5DE6791D/t51.2885-19/s150x150/66830733_344256546488173_1978021615937519616_n.jpg?_nc_ht=instagram.fdel19-1.fna.fbcdn.net'
                     }}
-                        avatarStyle={{ width: 25, height: 25, borderRadius: 100 }}
-                        containerStyle={{ width: 25, height: 25, borderRadius: 100, marginLeft: -10, position: 'relative', zIndex: 1 }}
+                        avatarStyle={{ width: 23, height: 23, borderRadius: 100 }}
+                        containerStyle={{ width: 23, height: 23, borderRadius: 100, marginLeft: -10, position: 'relative', zIndex: 1 }}
                         overlayContainerStyle={{ borderRadius: 100, backgroundColor: 'none' }}
                         rounded={true}
                     />
